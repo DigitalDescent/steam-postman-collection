@@ -31,7 +31,15 @@ jobs:
         STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
       run: python generate.py
 
-      # Commit any changes to the collection
+    # Sync the collection with Postman
+    - name: Sync Postman Collections
+      uses: jneate/postman-collection-action@v1
+      with:
+        postmanApiKey: ${{ secrets.POSTMAN_API_KEY }}
+        postmanWorkspaceId: 818265e0-7c57-411f-8fe7-5504726ec714
+        postmanTimeout: 30000
+
+    # Commit any changes to the collection
     - name: Commit changes.
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
