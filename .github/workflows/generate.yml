@@ -1,36 +1,40 @@
 name: Update Postman Collection Nightly
-
 on:
   schedule:
     - cron: '0 0 * * *'  # Runs every night at midnight
 
   workflow_dispatch: # Allow manual triggering from the Actions tab
 
+# Jobs to be executed
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
+    # Checkout the code
     - name: Checkout code
       uses: actions/checkout@v2
 
+    # Set up Python
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
 
+    # Install the requests library to make HTTP requests
     - name: Install dependencies
       run: pip install requests
 
+    # Execute the Python script to generate the collection
     - name: Execute Python script
       env:
         STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
       run: python generate.py
-      
-    - name: Commit changes
-      run: |
-        git config --local user.email "actions@github.com"
-        git config --local user.name "GitHub Actions"
-        git add ./steam_api_collection.json
-        git commit -m "Update Postman Collection [skip ci]"
-        git push
+
+      # Commit any changes to the collection
+    - name: Commit changes.
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Update Postman Collection [skip ci]"
+
+    # Keep the workflow alive
+    - uses: gautamkrishnar/keepalive-workflow@v1 # using the workflow with default settings
