@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.12"
+# requires-python = ">=3.11"
 # dependencies = [
 #     "requests",
 # ]
@@ -149,9 +149,9 @@ def generate_api_collection() -> None:
 
                 if is_service_interface:
                     input_dict = {i["key"]: i["value"] for i in items if not i.get("disabled", True)}
-                    request_item["request"]["description"] = f"{request_item["request"]["description"]}\n{
+                    request_item["request"]["description"] = f"""{request_item["request"]["description"]}\n{
                         json.dumps({i["key"]: i["value"] for i in items})
-                    }"
+                    }"""
                     if method_type == "POST":
                         if len(input_dict.keys()) > 0:
                             request_item["request"]["body"] = {
