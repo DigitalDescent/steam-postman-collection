@@ -10,6 +10,9 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
     # Checkout the code
     - name: Checkout code
@@ -31,16 +34,13 @@ jobs:
         STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
       run: python generate.py
 
-    # Sync the collection with Postman
-    #- name: Sync Postman Collections
-    #  uses: jneate/postman-collection-action@v1
-    #  with:
-    #    postmanApiKey: ${{ secrets.POSTMAN_API_KEY }}
-    #    postmanWorkspaceId: 818265e0-7c57-411f-8fe7-5504726ec714
-    #    postmanTimeout: 30000
-
     # Commit any changes to the collection
-    - name: Commit changes.
-      uses: stefanzweifel/git-auto-commit-action@v5
+    - uses: stefanzweifel/git-auto-commit-action@v5
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        commit_message: "Update Postman Collection [skip ci]"
+        commit_message: Update Postman Collection
+        branch: main
+        commit_user_name: Github-Actions 🤖
+        commit_user_email: actions@github.com
+        commit_author: Github-Actions🤖 <actions@github.com>
