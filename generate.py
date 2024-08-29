@@ -1,3 +1,9 @@
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#     "requests",
+# ]
+# ///
 """
 MIT License
 
@@ -28,6 +34,7 @@ import json
 import sys
 import os
 
+
 def generate_api_collection() -> None:
     """
     Generates the Postman API collection
@@ -38,7 +45,7 @@ def generate_api_collection() -> None:
     if steam_api_key is None:
         print("Please set the STEAM_API_KEY environment variable to your Steam Web API key")
         return
-    
+
     url = f'https://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v1/?key={steam_api_key}'
 
     # Send a GET request to the URL
@@ -71,7 +78,10 @@ def generate_api_collection() -> None:
         postman_collection = {
             "info": {
                 "name": f"Steam Web API {current_date}",
-                "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+                "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+                "description": "Generated from https://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v1\n"
+                               "\nGo ahead and set `key` in your environment variables. You can get a key from: "
+                               "https://steamcommunity.com/dev/apikey"
             },
             "item": []
         }
@@ -84,40 +94,88 @@ def generate_api_collection() -> None:
                 "item": []
             }
 
+            is_service_interface = interface_name.endswith("Service")
+
             # Iterate through methods and add them to the folder
             for method in methods:
                 # Create a Postman request item
+                method_name = method["name"]
+                method_type = method["httpmethod"]
                 request_item = {
-                    "name": method["name"],
+                    "name": method_name,
                     "request": {
-                        "method": method["httpmethod"],
+                        "method": method_type,
                         "url": {
-                            "raw": "https://api.steampowered.com",
-                            "host": ["api", "steampowered", "com"]
+                            "protocol": "https",
+                            "host": ["api", "steampowered", "com"],
+                            "path": [interface_name, method_name, f'v{method["version"]}', ''],
+                            "query": []
                         },
-                        "header": [],
-                        "body": {
-                            "mode": "formdata",
-                            "formdata": []
-                        },
-                        "description": method.get("description", "")
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            # https://partner.steamgames.com/doc/webapi_overview/auth
+                            # just presume it's needed
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": method.get("description", ""),
                     }
                 }
 
+                items = []
+
                 # Add parameters as request parameters
                 for param in method["parameters"]:
+                    if param["name"] == "key":
+                        continue
+
                     param_item = {
                         "key": param["name"],
                         "value": "",
-                        "description": param.get("description", "")
+                        "description": param.get("description", ""),
+                        "disabled": param.get("optional", False)
                     }
 
-                    if param["type"] == "uint64":
-                        param_item["type"] = "number"
-                    elif param["type"] == "string":
+                    if method_type == 'POST':
+                        # formdata property type is always text
                         param_item["type"] = "text"
 
-                    request_item["request"]["body"]["formdata"].append(param_item)
+                    items.append(param_item)
+
+                if is_service_interface:
+                    input_dict = {i["key"]: i["value"] for i in items if not i.get("disabled", True)}
+                    request_item["request"]["description"] = f"""{request_item["request"]["description"]}\n{
+                        json.dumps({i["key"]: i["value"] for i in items})
+                    }"""
+                    if method_type == "POST":
+                        if len(input_dict.keys()) > 0:
+                            request_item["request"]["body"] = {
+                                "mode": "raw",
+                                "raw": f"input_json={json.dumps(input_dict)}"
+                            }
+                    else:
+                        if len(input_dict.keys()) > 0:
+                            request_item["request"]["url"]["query"] = [
+                                {
+                                    "key": "input_json",
+                                    "value": json.dumps(input_dict)
+                                }
+                            ]
+                else:
+                    if method_type == "POST":
+                        if len(items) > 0:
+                            request_item["request"]["body"] = {
+                                "mode": "urlencoded",
+                                "urlencoded": items
+                            }
+                    else:
+                        if len(items) > 0:
+                            request_item["request"]["url"]["query"].extend(items)
 
                 # Add the request item to the folder
                 interface_folder["item"].append(request_item)
@@ -134,6 +192,7 @@ def generate_api_collection() -> None:
     else:
         print(f"Failed to retrieve data. Status code: {response.status_code}")
 
+
 def main() -> int:
     """
     Main entry point into the steam api generation tool
@@ -142,6 +201,7 @@ def main() -> int:
     generate_api_collection()
 
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())
