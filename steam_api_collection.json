@@ -1,6 +1,6 @@
 {
     "info": {
-        "name": "Steam Web API 09.17.2024",
+        "name": "Steam Web API 09.18.2024",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": "Generated from https://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v1\n\nGo ahead and set `key` in your environment variables. You can get a key from: https://steamcommunity.com/dev/apikey"
     },
