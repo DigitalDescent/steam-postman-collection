@@ -2,6 +2,8 @@
 
 An automatically generated Postman collection for Steam's entire web api
 
+View the public Postman collection [here](https://www.postman.com/digital-descent/development-resources/collection/ny44k51/steam-web-api-09-19-2024).
+
 ## Running
 Set the environment variable `STEAM_API_KEY` and then any of the follow python management tools can run the script directly:
 
