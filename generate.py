@@ -77,6 +77,7 @@ def generate_api_collection() -> None:
         # Create a new Postman collection with the date in the name
         postman_collection = {
             "info": {
+                "_postman_id": "4575b7d8-237c-458d-8972-b5fa0c556369",
                 "name": f"Steam Web API {current_date}",
                 "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
                 "description": "Generated from https://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v1\n"

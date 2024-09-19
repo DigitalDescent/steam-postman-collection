@@ -51,6 +51,14 @@ jobs:
         commit_user_email: actions@github.com
         commit_author: Github-Actions🤖 <actions@github.com>
 
+    # Sync the collection with Postman
+    - name: Sync Postman Collections
+      uses: jneate/postman-collection-action@v1
+      with:
+        postmanApiKey: ${{ secrets.POSTMAN_API_KEY }}
+        postmanWorkspaceId: d598cc9d-84bf-4e1d-8da2-6ee69c8ecd62
+        postmanTimeout: 30000
+
     # Keep the workflow alive
     - uses: gautamkrishnar/keepalive-workflow@v1 # using the workflow with default settings
       if: github.event_name != 'pull_request'
