@@ -1,7 +1,7 @@
 {
     "info": {
         "_postman_id": "4575b7d8-237c-458d-8972-b5fa0c556369",
-        "name": "Steam Web API 09.24.2024",
+        "name": "Steam Web API 09.25.2024",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": "Generated from https://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v1\n\nGo ahead and set `key` in your environment variables. You can get a key from: https://steamcommunity.com/dev/apikey"
     },
@@ -5759,6 +5759,42 @@
                         "body": {
                             "mode": "raw",
                             "raw": "input_json={\"client_id\": \"\"}"
+                        }
+                    }
+                },
+                {
+                    "name": "GetAuthSessionRiskInfo",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "IAuthenticationService",
+                                "GetAuthSessionRiskInfo",
+                                "v1",
+                                ""
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": "get risk metadata for a specific auth session that has been deemed risky\n{\"client_id\": \"\", \"language\": \"\"}",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "input_json={\"client_id\": \"\", \"language\": \"\"}"
                         }
                     }
                 },
