@@ -1,7 +1,7 @@
 {
     "info": {
         "_postman_id": "4575b7d8-237c-458d-8972-b5fa0c556369",
-        "name": "Steam Web API 11.12.2024",
+        "name": "Steam Web API 11.13.2024",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": "Generated from https://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v1\n\nGo ahead and set `key` in your environment variables. You can get a key from: https://steamcommunity.com/dev/apikey"
     },
@@ -1723,50 +1723,6 @@
                                     "key": "class_id",
                                     "value": "",
                                     "description": "Return items equipped for this class id",
-                                    "disabled": false
-                                }
-                            ]
-                        },
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/x-www-form-urlencoded"
-                            },
-                            {
-                                "key": "x-webapi-key",
-                                "value": "{{key}}"
-                            }
-                        ],
-                        "description": ""
-                    }
-                }
-            ]
-        },
-        {
-            "name": "IEconItems_221540",
-            "item": [
-                {
-                    "name": "GetPlayerItems",
-                    "request": {
-                        "method": "GET",
-                        "url": {
-                            "protocol": "https",
-                            "host": [
-                                "api",
-                                "steampowered",
-                                "com"
-                            ],
-                            "path": [
-                                "IEconItems_221540",
-                                "GetPlayerItems",
-                                "v1",
-                                ""
-                            ],
-                            "query": [
-                                {
-                                    "key": "steamid",
-                                    "value": "",
-                                    "description": "The Steam ID to fetch items for",
                                     "disabled": false
                                 }
                             ]
