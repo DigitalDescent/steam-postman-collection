@@ -1,7 +1,7 @@
 {
     "info": {
         "_postman_id": "4575b7d8-237c-458d-8972-b5fa0c556369",
-        "name": "Steam Web API 12.01.2024",
+        "name": "Steam Web API 12.02.2024",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": "Generated from https://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v1\n\nGo ahead and set `key` in your environment variables. You can get a key from: https://steamcommunity.com/dev/apikey"
     },
@@ -1787,6 +1787,276 @@
             ]
         },
         {
+            "name": "IEconItems_440",
+            "item": [
+                {
+                    "name": "GetPlayerItems",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "IEconItems_440",
+                                "GetPlayerItems",
+                                "v1",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "steamid",
+                                    "value": "",
+                                    "description": "The Steam ID to fetch items for",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": ""
+                    }
+                },
+                {
+                    "name": "GetSchema",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "IEconItems_440",
+                                "GetSchema",
+                                "v1",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "language",
+                                    "value": "",
+                                    "description": "The language to return the names in. Defaults to returning string keys.",
+                                    "disabled": true
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": ""
+                    }
+                },
+                {
+                    "name": "GetSchemaItems",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "IEconItems_440",
+                                "GetSchemaItems",
+                                "v1",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "language",
+                                    "value": "",
+                                    "description": "The language to return the names in. Defaults to returning string keys.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "start",
+                                    "value": "",
+                                    "description": "The first item id to return. Defaults to 0. Response will indicate next value to query if applicable.",
+                                    "disabled": true
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": ""
+                    }
+                },
+                {
+                    "name": "GetSchemaOverview",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "IEconItems_440",
+                                "GetSchemaOverview",
+                                "v1",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "language",
+                                    "value": "",
+                                    "description": "The language to return the names in. Defaults to returning string keys.",
+                                    "disabled": true
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": ""
+                    }
+                },
+                {
+                    "name": "GetSchemaURL",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "IEconItems_440",
+                                "GetSchemaURL",
+                                "v1",
+                                ""
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": ""
+                    }
+                },
+                {
+                    "name": "GetStoreMetaData",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "IEconItems_440",
+                                "GetStoreMetaData",
+                                "v1",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "language",
+                                    "value": "",
+                                    "description": "The language to results in.",
+                                    "disabled": true
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": ""
+                    }
+                },
+                {
+                    "name": "GetStoreStatus",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "IEconItems_440",
+                                "GetStoreStatus",
+                                "v1",
+                                ""
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": ""
+                    }
+                }
+            ]
+        },
+        {
             "name": "IEconItems_570",
             "item": [
                 {
@@ -2342,6 +2612,75 @@
                             ],
                             "path": [
                                 "IGCVersion_1422450",
+                                "GetServerVersion",
+                                "v1",
+                                ""
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": ""
+                    }
+                }
+            ]
+        },
+        {
+            "name": "IGCVersion_440",
+            "item": [
+                {
+                    "name": "GetClientVersion",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "IGCVersion_440",
+                                "GetClientVersion",
+                                "v1",
+                                ""
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": ""
+                    }
+                },
+                {
+                    "name": "GetServerVersion",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "IGCVersion_440",
                                 "GetServerVersion",
                                 "v1",
                                 ""
@@ -4368,6 +4707,176 @@
             ]
         },
         {
+            "name": "ITFItems_440",
+            "item": [
+                {
+                    "name": "GetGoldenWrenches",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "ITFItems_440",
+                                "GetGoldenWrenches",
+                                "v1",
+                                ""
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": ""
+                    }
+                },
+                {
+                    "name": "GetGoldenWrenches",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "ITFItems_440",
+                                "GetGoldenWrenches",
+                                "v2",
+                                ""
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": ""
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ITFPromos_440",
+            "item": [
+                {
+                    "name": "GetItemID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "ITFPromos_440",
+                                "GetItemID",
+                                "v1",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "steamid",
+                                    "value": "",
+                                    "description": "The Steam ID to fetch items for",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "promoid",
+                                    "value": "",
+                                    "description": "The promo ID to grant an item for",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": ""
+                    }
+                },
+                {
+                    "name": "GrantItem",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "ITFPromos_440",
+                                "GrantItem",
+                                "v1",
+                                ""
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": "",
+                        "body": {
+                            "mode": "urlencoded",
+                            "urlencoded": [
+                                {
+                                    "key": "steamid",
+                                    "value": "",
+                                    "description": "The Steam ID to fetch items for",
+                                    "disabled": false,
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "promoid",
+                                    "value": "",
+                                    "description": "The promo ID to grant an item for",
+                                    "disabled": false,
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
             "name": "ITFPromos_620",
             "item": [
                 {
@@ -4464,6 +4973,43 @@
                                 }
                             ]
                         }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ITFSystem_440",
+            "item": [
+                {
+                    "name": "GetWorldStatus",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "steampowered",
+                                "com"
+                            ],
+                            "path": [
+                                "ITFSystem_440",
+                                "GetWorldStatus",
+                                "v1",
+                                ""
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "key": "x-webapi-key",
+                                "value": "{{key}}"
+                            }
+                        ],
+                        "description": ""
                     }
                 }
             ]
