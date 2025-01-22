@@ -1,7 +1,7 @@
 {
     "info": {
         "_postman_id": "4575b7d8-237c-458d-8972-b5fa0c556369",
-        "name": "Steam Web API 01.21.2025",
+        "name": "Steam Web API 01.22.2025",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": "Generated from https://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v1\n\nGo ahead and set `key` in your environment variables. You can get a key from: https://steamcommunity.com/dev/apikey"
     },
@@ -2190,89 +2190,6 @@
             ]
         },
         {
-            "name": "IEconItems_620",
-            "item": [
-                {
-                    "name": "GetPlayerItems",
-                    "request": {
-                        "method": "GET",
-                        "url": {
-                            "protocol": "https",
-                            "host": [
-                                "api",
-                                "steampowered",
-                                "com"
-                            ],
-                            "path": [
-                                "IEconItems_620",
-                                "GetPlayerItems",
-                                "v1",
-                                ""
-                            ],
-                            "query": [
-                                {
-                                    "key": "steamid",
-                                    "value": "",
-                                    "description": "The Steam ID to fetch items for",
-                                    "disabled": false
-                                }
-                            ]
-                        },
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/x-www-form-urlencoded"
-                            },
-                            {
-                                "key": "x-webapi-key",
-                                "value": "{{key}}"
-                            }
-                        ],
-                        "description": ""
-                    }
-                },
-                {
-                    "name": "GetSchema",
-                    "request": {
-                        "method": "GET",
-                        "url": {
-                            "protocol": "https",
-                            "host": [
-                                "api",
-                                "steampowered",
-                                "com"
-                            ],
-                            "path": [
-                                "IEconItems_620",
-                                "GetSchema",
-                                "v1",
-                                ""
-                            ],
-                            "query": [
-                                {
-                                    "key": "language",
-                                    "value": "",
-                                    "description": "The language to return the names in. Defaults to returning string keys.",
-                                    "disabled": true
-                                }
-                            ]
-                        },
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/x-www-form-urlencoded"
-                            },
-                            {
-                                "key": "x-webapi-key",
-                                "value": "{{key}}"
-                            }
-                        ],
-                        "description": ""
-                    }
-                }
-            ]
-        },
-        {
             "name": "IEconItems_730",
             "item": [
                 {
@@ -2861,50 +2778,6 @@
                                 ""
                             ],
                             "query": []
-                        },
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/x-www-form-urlencoded"
-                            },
-                            {
-                                "key": "x-webapi-key",
-                                "value": "{{key}}"
-                            }
-                        ],
-                        "description": ""
-                    }
-                }
-            ]
-        },
-        {
-            "name": "IPortal2Leaderboards_620",
-            "item": [
-                {
-                    "name": "GetBucketizedData",
-                    "request": {
-                        "method": "GET",
-                        "url": {
-                            "protocol": "https",
-                            "host": [
-                                "api",
-                                "steampowered",
-                                "com"
-                            ],
-                            "path": [
-                                "IPortal2Leaderboards_620",
-                                "GetBucketizedData",
-                                "v1",
-                                ""
-                            ],
-                            "query": [
-                                {
-                                    "key": "leaderboardName",
-                                    "value": "",
-                                    "description": "The leaderboard name to fetch data for.",
-                                    "disabled": false
-                                }
-                            ]
                         },
                         "header": [
                             {
@@ -4865,107 +4738,6 @@
                                 },
                                 {
                                     "key": "promoid",
-                                    "value": "",
-                                    "description": "The promo ID to grant an item for",
-                                    "disabled": false,
-                                    "type": "text"
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "ITFPromos_620",
-            "item": [
-                {
-                    "name": "GetItemID",
-                    "request": {
-                        "method": "GET",
-                        "url": {
-                            "protocol": "https",
-                            "host": [
-                                "api",
-                                "steampowered",
-                                "com"
-                            ],
-                            "path": [
-                                "ITFPromos_620",
-                                "GetItemID",
-                                "v1",
-                                ""
-                            ],
-                            "query": [
-                                {
-                                    "key": "steamid",
-                                    "value": "",
-                                    "description": "The Steam ID to fetch items for",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "PromoID",
-                                    "value": "",
-                                    "description": "The promo ID to grant an item for",
-                                    "disabled": false
-                                }
-                            ]
-                        },
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/x-www-form-urlencoded"
-                            },
-                            {
-                                "key": "x-webapi-key",
-                                "value": "{{key}}"
-                            }
-                        ],
-                        "description": ""
-                    }
-                },
-                {
-                    "name": "GrantItem",
-                    "request": {
-                        "method": "POST",
-                        "url": {
-                            "protocol": "https",
-                            "host": [
-                                "api",
-                                "steampowered",
-                                "com"
-                            ],
-                            "path": [
-                                "ITFPromos_620",
-                                "GrantItem",
-                                "v1",
-                                ""
-                            ],
-                            "query": []
-                        },
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/x-www-form-urlencoded"
-                            },
-                            {
-                                "key": "x-webapi-key",
-                                "value": "{{key}}"
-                            }
-                        ],
-                        "description": "",
-                        "body": {
-                            "mode": "urlencoded",
-                            "urlencoded": [
-                                {
-                                    "key": "steamid",
-                                    "value": "",
-                                    "description": "The Steam ID to fetch items for",
-                                    "disabled": false,
-                                    "type": "text"
-                                },
-                                {
-                                    "key": "PromoID",
                                     "value": "",
                                     "description": "The promo ID to grant an item for",
                                     "disabled": false,
